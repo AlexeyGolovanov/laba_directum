@@ -9,7 +9,8 @@ namespace Task3OOP
     /// <summary>
     /// класс описывающий прямоугольник
     /// </summary>
-    public class Rectangle : Square
+    public class Rectangle : Square // Почему прямоугольник наследуется от квадрата? 
+                                    // Ведь квадрат - это частный случай прямоугольника.
     {
         /// <summary>
         /// длина второй стороны

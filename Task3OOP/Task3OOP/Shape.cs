@@ -14,17 +14,17 @@ namespace Task3OOP
         /// <summary>
         /// площадь фигуры
         /// </summary>
-        public double Area { get => this.Area; set => this.CountArea(); }
+        public double Area { get => this.Area; set => this.CountArea(); } // Вызов такого геттера приведёт к исключению. См. замечания к Task2.
 
         /// <summary>
         /// периметр фигуры
         /// </summary>
-        public double Perimeter { get => this.Perimeter; set => this.CountPerimeter(); }
+        public double Perimeter { get => this.Perimeter; set => this.CountPerimeter(); }  // То же самое.
 
         /// <summary>
         /// координаты центра
         /// </summary>
-        public int[] Center { get; set; }
+        public int[] Center { get; set; } // Массив для этого плохо подходит. С бы использовал структуру Point.
 
         /// <summary>
         /// метод вычисляющий периметр фигуры

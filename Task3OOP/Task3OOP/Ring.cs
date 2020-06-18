@@ -14,7 +14,7 @@ namespace Task3OOP
     public class Ring : Circle
     {
         /// <summary>
-        /// ынутренний радиус кольца
+        /// ынутренний радиус кольца  // Ещё опечатка. Лучше быть с этим чуть внимательнее.
         /// </summary>
         public int RadiusInner { get; set; }
 
