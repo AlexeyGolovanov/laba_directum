@@ -30,10 +30,12 @@ namespace Task2DNetArchitecture
         {
             get
             {
-                return this.Duration;
+                return this.Duration; // В класс Program в методе Main() можно было протестировать это.
+                                      // Сейчас в этом месте будет исключение.
+                                      // Здесь можно сразу написать this.EndDate - this.StartDate;
             }
 
-            set
+            set // Сеттер тут не требуется.
             {
                 this.Duration = this.EndDate - this.StartDate;
             }

@@ -17,7 +17,7 @@ namespace Task2DNetArchitecture
         /// установка времени напоминания в минутах до времени начала
         /// </summary>
         /// <param name="minutes">число минут</param>
-        public void SetRemindTime(int minutes);
+        public void SetRemindTime(int minutes); // А почему не свойством, а методами. Просто интересно.
 
         /// <summary>
         /// вывод установленного времени напоминания о встрече
