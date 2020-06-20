@@ -14,15 +14,8 @@ namespace Task2DNetArchitecture
     public interface IRemind
     {
         /// <summary>
-        /// установка времени напоминания в минутах до времени начала
+        /// Время вызова напоминания
         /// </summary>
-        /// <param name="minutes">число минут</param>
-        public void SetRemindTime(int minutes); // А почему не свойством, а методами. Просто интересно.
-
-        /// <summary>
-        /// вывод установленного времени напоминания о встрече
-        /// </summary>
-        /// <returns>возвращает время напоминания о встрече</returns>
-        public DateTime GetRemindTime();
+        public DateTime RemindTime { get; set; }
     }
 }
