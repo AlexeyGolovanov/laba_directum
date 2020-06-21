@@ -7,12 +7,23 @@
 namespace Task3OOP
 {
     using System;
+    using System.Drawing;
 
     /// <summary>
     /// класс описывающий окружность
     /// </summary>
     public class Round : Shape
     {
+        /// <summary>
+        /// конструктор объектов класса окружность
+        /// </summary>
+        /// <param name="center">центр окружности</param>
+        /// <param name="radius">радиус окружности</param>
+        public Round(Point center, int radius) : base(center)
+        {
+            this.Radius = radius;
+        }
+
         /// <summary>
         /// радиус окружности
         /// </summary>
@@ -35,8 +46,5 @@ namespace Task3OOP
         {
             return 2 * Math.PI * this.Radius;
         }
-
-        // Было бы не плохо задавать радиус через конструктор.
-        // Да и другие параметры в других фигурах тоже.
-  }
+    }
 }

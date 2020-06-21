@@ -7,6 +7,7 @@
 namespace Task3OOP
 {
     using System;
+    using System.Drawing;
 
     /// <summary>
     /// класс описывающий кольцо
@@ -14,7 +15,18 @@ namespace Task3OOP
     public class Ring : Circle
     {
         /// <summary>
-        /// ынутренний радиус кольца  // Ещё опечатка. Лучше быть с этим чуть внимательнее.
+        /// конструктор объектов класса кольцо
+        /// </summary>
+        /// <param name="center">центр фигуры</param>
+        /// <param name="radius">внешний радиус</param>
+        /// <param name="radiusInner">внутренний радиус</param>
+        public Ring(Point center, int radius, int radiusInner) : base(center, radius)
+        {
+            this.RadiusInner = radiusInner;
+        }
+
+        /// <summary>
+        /// внутренний радиус кольца
         /// </summary>
         public int RadiusInner { get; set; }
 

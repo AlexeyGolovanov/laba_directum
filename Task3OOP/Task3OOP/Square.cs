@@ -6,32 +6,20 @@
 
 namespace Task3OOP
 {
+    using System.Drawing;
+
     /// <summary>
     /// класс описывающий квадрат
     /// </summary>
-    public class Square : Shape
+    public class Square : Rectangle
     {
         /// <summary>
-        /// длинна стороны квадрата
+        /// конструктор объектов класса квдрат
         /// </summary>
-        public int Side { get; set; }
-
-        /// <summary>
-        /// вычисление площади квадрата
-        /// </summary>
-        /// <returns>плошадь квадрата</returns>
-        public override double CountArea()
+        /// <param name="center">центр квадрата</param>
+        /// <param name="side">длина стороны квадрата</param>
+        public Square(Point center, int side) : base(center, side, side)
         {
-            return this.Side * this.Side;
-        }
-
-        /// <summary>
-        /// вычисление периметра квадрата
-        /// </summary>
-        /// <returns>периметр квадрата</returns>
-        public override double CountPerimeter()
-        {
-            return this.Side * 4;
         }
     }
 }

@@ -6,25 +6,36 @@
 
 namespace Task3OOP
 {
+    using System.Drawing;
+
     /// <summary>
     /// абстрактный класс для геометрических фигур
     /// </summary>
     public abstract class Shape
     {
         /// <summary>
+        /// конструктор объектов класса фигура
+        /// </summary>
+        /// <param name="center">центр фигуры</param>
+        public Shape(Point center)
+        {
+            this.Center = center;
+        }
+
+        /// <summary>
         /// площадь фигуры
         /// </summary>
-        public double Area { get => this.Area; set => this.CountArea(); } // Вызов такого геттера приведёт к исключению. См. замечания к Task2.
+        public double Area { get => this.CountArea(); }
 
         /// <summary>
         /// периметр фигуры
         /// </summary>
-        public double Perimeter { get => this.Perimeter; set => this.CountPerimeter(); }  // То же самое.
+        public double Perimeter { get => this.CountPerimeter(); } 
 
         /// <summary>
         /// координаты центра
         /// </summary>
-        public int[] Center { get; set; } // Массив для этого плохо подходит. С бы использовал структуру Point.
+        public Point Center { get; set; }
 
         /// <summary>
         /// метод вычисляющий периметр фигуры
