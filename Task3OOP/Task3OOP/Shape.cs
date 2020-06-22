@@ -25,7 +25,8 @@ namespace Task3OOP
         /// <summary>
         /// площадь фигуры
         /// </summary>
-        public double Area { get => this.CountArea(); }
+        public double Area { get => this.CountArea(); }   // Почему используются и свойства и методы?
+                                                          // Можешь не исправлять, а просто объяснить.
 
         /// <summary>
         /// периметр фигуры
