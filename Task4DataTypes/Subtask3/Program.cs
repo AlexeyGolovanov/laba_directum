@@ -6,7 +6,7 @@
     /// Тип прав.
     /// </summary>
     [Flags, Serializable]
-    public enum AccessRights : byte
+    public enum AccessRights : byte // Лучше было вынести в отдельный файл.
     {
         /// <summary>
         /// Права на просмотр.
@@ -65,9 +65,9 @@
                 return;
             }
 
-            var bitString = Convert.ToString((int)rightsSum, 2);
+            var bitString = Convert.ToString((int)rightsSum, 2);    // Преобразование в строку похоже на костыль.
             var fullString = new string('0', 7 - bitString.Length) + bitString;
-            if (fullString[0] == '1')
+            if (fullString[0] == '1')   // Лучше проверить непосредственно rightsSum == AccessRights.AccessDenied
             {
                 Console.WriteLine((AccessRights)Math.Pow(2, 6));
                 return;
@@ -75,7 +75,7 @@
 
             for (int i = 6; i >= 0; i--)
             {
-                if (fullString[i] == '1')
+                if (fullString[i] == '1') // Ну и тут соответственно лучше попробовать обойтись без строк.
                 {
                     Console.WriteLine((AccessRights)Math.Pow(2, 6 - i));
                 }
