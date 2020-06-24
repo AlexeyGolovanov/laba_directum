@@ -44,7 +44,6 @@
         public void WriteString(string data)
         {
             this.logWriter.WriteLine(data);
-            this.Dispose(); // Здесь не нужно вызывать Dispose();
         }
     }
 }
