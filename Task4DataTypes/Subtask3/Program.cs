@@ -21,7 +21,7 @@
 
             if ((int)rightsSum >= (int)AccessRights.AccessDenied)
             {
-                Console.WriteLine((AccessRights)Math.Pow(2, 6));
+                Console.WriteLine(AccessRights.AccessDenied);
                 return;
             }
 
