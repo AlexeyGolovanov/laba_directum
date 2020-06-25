@@ -13,6 +13,7 @@
         private static void Main()
         {
             Console.WriteLine(new StringValue("AAA").Equals(new StringValue("AAA")));
+            Console.WriteLine(new StringValue("AAA") != new StringValue("AAA"));  // В задании сказано проверять ещё и оператором.
         }
     }
 }

@@ -35,7 +35,7 @@ namespace SubTask3Complex
         public int CompareTo(object? obj)
         {
             var other = obj as Complex;
-            if (other != null)
+            if (other != null)      // Можно ещё короче: if (obj is Complex other)
             {
                 return this.GetAbs().CompareTo(other.GetAbs());
             }

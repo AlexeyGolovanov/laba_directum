@@ -38,7 +38,9 @@
         /// <returns>не равны ли значения</returns>
         public static bool operator !=(StringValue sw1, StringValue sw2)
         {
-            return sw1 != null && !sw1.Equals(sw2);
+            return sw1 != null && !sw1.Equals(sw2);  // На данный момент здесь падает stackoverflow, т.к. оператор вызывает сам себя.
+                                                     // Советую обратить внимание на оператор "?" для проверки на null.
+                                                     // +Странно получается: Если 1 операнд null, то != вернул false. И == вернёт false.
         }
 
         /// <summary>
@@ -58,7 +60,9 @@
         /// <returns>равны ли значения</returns>
         public override bool Equals(object o)
         {
-            return o != null && this.Value == o.ToString();
+            return o != null && this.Value == o.ToString(); // Надо проверять тип o. Это можно сделать с помощью оператора is. 
+                                                            // Должна получится проверка типа (o is StringValue value).
+                                                            // Тогда value будет типа StringValue и для его передаём как аргумент в Equals, который у нас перегружен выше.
         }
 
         /// <summary>
@@ -67,7 +71,7 @@
         /// <returns>кэш сумма</returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return base.GetHashCode();  // Не лучший вариант. Лучше использовать хэш строки.
         }
     }
 }
