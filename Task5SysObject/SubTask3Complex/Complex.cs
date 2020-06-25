@@ -34,8 +34,7 @@ namespace SubTask3Complex
         /// <returns>1 - больше, -1 - меньше, 0 - равны</returns>
         public int CompareTo(object? obj)
         {
-            var other = obj as Complex;
-            if (other != null)      // Можно ещё короче: if (obj is Complex other)
+            if (obj is Complex other)
             {
                 return this.GetAbs().CompareTo(other.GetAbs());
             }
