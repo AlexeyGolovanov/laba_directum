@@ -20,11 +20,11 @@
             var connectionCounter = 0;
             using (StreamReader sr = new StreamReader(path))
             {
-                sr.ReadLine();
+                sr.ReadLine();  // Выглядит странно, если не посмотреть в файл с логом.
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    var connectionDate = DateTime.Parse(line.Substring(0, 19).Replace('\t', ' '));
+                    var connectionDate = DateTime.Parse(line.Substring(0, 19).Replace('\t', ' '));  // Давай лучше сделаем через регулярки.
                     if (connectionDate > startDate)
                     {
                         if (connectionDate < endDate)
@@ -33,7 +33,7 @@
                         }
                         else
                         {
-                            break;
+                            break;  // Лучше бы пробежаться по всем записям до конца файла.
                         }
                     }
                 }
