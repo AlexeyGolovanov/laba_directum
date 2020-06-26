@@ -58,9 +58,9 @@
         /// <returns>равны ли значения</returns>
         public override bool Equals(object o)
         {
-            if (o is StringValue)
+            if (o is StringValue stringValue)
             {
-                return this.Equals(o);
+                return this.Equals(stringValue);  // Здесь был stackoverflow. Должен вызываться другой Equals. Для этого надо передавать параметр другого типа.
             }
 
             return false;
