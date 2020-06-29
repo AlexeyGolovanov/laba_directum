@@ -12,7 +12,7 @@
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        private void Main()
+        private void Main()   // Метод должен быть публичным и статичным. Иначе  приложение не запускается.
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
