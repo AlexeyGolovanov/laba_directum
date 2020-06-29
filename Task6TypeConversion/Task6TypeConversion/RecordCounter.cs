@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Класс содержащий метод подсчета подходяших строк в файле
@@ -20,21 +21,13 @@
             var connectionCounter = 0;
             using (StreamReader sr = new StreamReader(path))
             {
-                sr.ReadLine();  // Выглядит странно, если не посмотреть в файл с логом.
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    var connectionDate = DateTime.Parse(line.Substring(0, 19).Replace('\t', ' '));  // Давай лучше сделаем через регулярки.
-                    if (connectionDate > startDate)
+                    Match match = Regex.Match(line, @"^[0-2]\d\.[0-1]\d\.[1-2]\d{3}\t\d{1,2}:\d{2}:\d{2}");
+                    if (match.Success && DateTime.Parse(match.Value) > startDate && DateTime.Parse(match.Value) < endDate)
                     {
-                        if (connectionDate < endDate)
-                        {
-                            connectionCounter++;
-                        }
-                        else
-                        {
-                            break;  // Лучше бы пробежаться по всем записям до конца файла.
-                        }
+                        connectionCounter++;
                     }
                 }
             }
