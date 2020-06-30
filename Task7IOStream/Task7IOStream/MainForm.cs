@@ -33,11 +33,22 @@
         /// </summary>
         private void LoadToRichTextBox()
         {
-            using (FileStream fs = new FileStream(@"..\..\..\..\Task7IOStream\q2.rtf.gz", FileMode.Open))
-            using (GZipStream decompressionStream = new GZipStream(fs, CompressionMode.Decompress))
-            using (StreamReader sr = new StreamReader(decompressionStream))
+            try
             {
-                rtb.Rtf = sr.ReadToEnd();
+                using (FileStream fs = new FileStream(@"..\..\..\..\Task7IOStream\q2.rtf.gz", FileMode.Open))
+                using (GZipStream decompressionStream = new GZipStream(fs, CompressionMode.Decompress))
+                using (StreamReader sr = new StreamReader(decompressionStream))
+                {
+                    rtb.Rtf = sr.ReadToEnd();
+                }
+            }
+            catch (UnauthorizedAccessException exception)
+            {
+                throw new LoadFileException(exception.Message, exception);
+            }
+            catch (FileNotFoundException exception)
+            {
+                throw new LoadFileException(exception.Message, exception);
             }
         }
     }
