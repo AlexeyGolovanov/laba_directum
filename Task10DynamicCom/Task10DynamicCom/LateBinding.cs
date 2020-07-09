@@ -14,7 +14,6 @@
         public static void FillMultiplicationTable(string filePath)
         {
             dynamic excelApp = Activator.CreateInstance(Type.GetTypeFromProgID("Excel.Application"));
-
             excelApp.SheetsInNewWorkbook = 1;
             excelApp.Workbooks.Add(Type.Missing);
 
@@ -44,21 +43,25 @@
             }
 
             dynamic accessMode = Type.GetType("Microsoft.Office.Interop.Excel.XlSaveAsAccessMode");
-            dynamic shared = accessMode.GetField("xlShared").GetValue(accessMode);
-            excelApp.Application.ActiveWorkbook.SaveAs(
-                filePath,
-                Type.Missing,
-                Type.Missing,
-                Type.Missing,
-                Type.Missing,
-                Type.Missing,
-                shared,
-                Type.Missing,
-                Type.Missing,
-                Type.Missing,
-                Type.Missing,
-                Type.Missing);
-         excelApp.Quit();
+            if (accessMode != null)
+            {
+                dynamic shared = accessMode.GetField("xlShared").GetValue(accessMode);
+                excelApp.Application.ActiveWorkbook.SaveAs(
+                    filePath,
+                    Type.Missing,
+                    Type.Missing,
+                    Type.Missing,
+                    Type.Missing,
+                    Type.Missing,
+                    shared,
+                    Type.Missing,
+                    Type.Missing,
+                    Type.Missing,
+                    Type.Missing,
+                    Type.Missing);
+            }
+
+            excelApp.Quit();
         }
     }
 }
