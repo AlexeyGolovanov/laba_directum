@@ -18,6 +18,6 @@
             var meeting = new MeetingWithType();
             meeting.Type = MeetingType.Birthday;
             Assert.AreEqual(meeting.Type, MeetingType.Birthday);
-    }
+        }
     }
 }

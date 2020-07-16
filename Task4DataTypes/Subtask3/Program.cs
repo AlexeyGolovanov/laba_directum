@@ -1,4 +1,6 @@
-﻿namespace Subtask3
+﻿using System.Text;
+
+namespace Subtask3
 {
     using System;
 
@@ -11,27 +13,29 @@
         /// метод определяющий имеющиеся права
         /// </summary>
         /// <param name="rightsSum">входное значение имеющихся прав</param>
-        public static void DetectRights(AccessRights rightsSum)
+        public static string DetectRights(AccessRights rightsSum)
         {
             if ((int)rightsSum > 127 || (int)rightsSum < 0)
             {
-                Console.WriteLine("invalid input format");
-                return;
+                return "invalid input format";
             }
 
             if ((int)rightsSum >= (int)AccessRights.AccessDenied)
             {
-                Console.WriteLine(AccessRights.AccessDenied);
-                return;
+                return AccessRights.AccessDenied.ToString();
             }
+
+            var rights = new StringBuilder();
 
             for (int i = 0; i <= 6; i++)
             {
                 if ((int)rightsSum >= Math.Pow(2, i))
                 {
-                    Console.WriteLine((AccessRights)Math.Pow(2, i));
+                    rights.Append((AccessRights)Math.Pow(2, i)+" ");
                 }
             }
+
+            return rights.ToString();
         }
 
         /// <summary>
@@ -40,16 +44,16 @@
         private static void Main()
         {
             Console.WriteLine("Rights for 63");
-            DetectRights((AccessRights)63);
+            Console.WriteLine((AccessRights)63);
 
             Console.WriteLine("\nRights for 64");
-            DetectRights((AccessRights)64);
+            Console.WriteLine(DetectRights((AccessRights)64));
 
             Console.WriteLine("\nRights for 65");
-            DetectRights((AccessRights)65);
+            Console.WriteLine(DetectRights((AccessRights)65));
 
             Console.WriteLine("\nRights for 128");
-            DetectRights((AccessRights)128);
+            Console.WriteLine(DetectRights((AccessRights)128));
             Console.ReadLine();
         }
     }

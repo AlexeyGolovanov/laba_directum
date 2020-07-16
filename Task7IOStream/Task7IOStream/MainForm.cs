@@ -1,8 +1,6 @@
 ﻿namespace Task7IOStream
 {
     using System;
-    using System.IO;
-    using System.IO.Compression;
     using System.Windows.Forms;
 
     /// <summary>
@@ -29,27 +27,11 @@
         }
 
         /// <summary>
-        /// Загрузка данных из архива в RichTextBox
+        /// Заполнение RichTextBox в форме
         /// </summary>
         private void LoadToRichTextBox()
         {
-            try
-            {
-                using (FileStream fs = new FileStream(@"..\..\..\..\Task7IOStream\q2.rtf.gz", FileMode.Open))
-                using (GZipStream decompressionStream = new GZipStream(fs, CompressionMode.Decompress))
-                using (StreamReader sr = new StreamReader(decompressionStream))
-                {
-                    rtb.Rtf = sr.ReadToEnd();
-                }
-            }
-            catch (UnauthorizedAccessException exception)
-            {
-                throw new LoadFileException(exception.Message, exception);
-            }
-            catch (FileNotFoundException exception)
-            {
-                throw new LoadFileException(exception.Message, exception);
-            }
+            rtb.Rtf = ArchiveReader.ReadFromGzip(@"..\..\..\..\Task7IOStream\q2.rtf.gz");
         }
     }
 }

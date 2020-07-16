@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArchiveReader.cs" />
     <Compile Include="LoadFileException.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
