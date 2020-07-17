@@ -24,7 +24,7 @@
         [Test]
         public void AccesDeniedReturn()
         {
-            Assert.AreEqual("AccessDenied", Program.DetectRights((AccessRights)64));
+            Assert.AreEqual("AccessDenied", Program.DetectRights((AccessRights)64));  // Почему не просто AccessRights.AccessDenied.
         }
     }
 }

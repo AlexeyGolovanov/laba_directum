@@ -9,4 +9,10 @@
     <ProjectReference Include="..\..\Task8\StringEnumerator\SubTask4.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ClientConnectionLog.log">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

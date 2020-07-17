@@ -13,7 +13,7 @@ namespace Task13NUnitTests
         /// тест создания обычного объекта класса meeting
         /// </summary>
         [Test]
-        public void CreateCommon()
+        public void CreateCommon()    // Не надо дублировать уже имеющиеся тесты.
         {
             var meeting = new Meeting
             {

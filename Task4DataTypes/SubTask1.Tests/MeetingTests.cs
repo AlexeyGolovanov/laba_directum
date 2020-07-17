@@ -21,7 +21,7 @@ namespace SubTask1.Tests
                 StartDate = DateTime.Now + TimeSpan.FromMinutes(30)
             };
             meeting.EndDate = meeting.StartDate + TimeSpan.FromMinutes(15);
-            if (meeting.Duration != null)
+            if (meeting.Duration != null) // Что если в классе кто-то что-то сломает и Duration станет null? Тест не будет падать.
             {
                 Assert.AreEqual(meeting.Duration.Value.Minutes, 15);
             }

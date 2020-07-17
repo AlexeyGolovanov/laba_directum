@@ -16,7 +16,7 @@ namespace SubTask2.Tests
         [TestMethod]
         public void MaxOfThree()
         {
-            var max1 = MaxFinder.GetMaxOfThree(1, 15, 9);
+            var max1 = MaxFinder.GetMaxOfThree(1, 15, 9);   // Можно было бы выделить 2 тест кейса.
             Assert.AreEqual(max1, 15);
 
             var max2 = MaxFinder.GetMaxOfThree(
